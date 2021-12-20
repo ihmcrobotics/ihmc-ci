@@ -26,7 +26,7 @@ println(junit.jupiterApi())
 println(allocation.instrumenter())
 
 junitfiveTestDependencies {
-   api("us.ihmc:log-tools:0.6.2")
+   api("us.ihmc:log-tools:0.6.3")
    api("us.ihmc:ihmc-commons:0.30.4")
 
    // api("us.ihmc:categories-test:source")  // for testing discovery of external classpath tests
