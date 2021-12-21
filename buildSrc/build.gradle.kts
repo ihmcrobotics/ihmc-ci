@@ -12,7 +12,6 @@ version = "7.6"
 
 repositories {
    mavenCentral()
-   jcenter()
 }
 
 dependencies {
