@@ -5,7 +5,7 @@ plugins {
 
 ihmc {
    group = "us.ihmc"
-   version = "4.25"
+   version = "4.25" // not released; only for tests
    vcsUrl = "https://github.com/ihmcrobotics/ihmc-ci"
    openSource = true
    maintainer = "Duncan Calvert"
@@ -27,7 +27,7 @@ println(allocation.instrumenter())
 
 junitfiveTestDependencies {
    api("us.ihmc:log-tools:0.6.3")
-   api("us.ihmc:ihmc-commons:0.30.4")
+   api("us.ihmc:ihmc-commons:0.30.5")
 
    // api("us.ihmc:categories-test:source")  // for testing discovery of external classpath tests
 }

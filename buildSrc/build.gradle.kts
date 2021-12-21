@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "us.ihmc"
-version = "7.4"
+version = "7.5"
 
 repositories {
    mavenCentral()
@@ -16,10 +16,10 @@ repositories {
 }
 
 dependencies {
-   api("org.junit.platform:junit-platform-console:1.7.0")
-   api("org.junit.jupiter:junit-jupiter-engine:5.7.0")
-   api("com.github.kittinunf.fuel:fuel:2.2.3")
-   api("org.json:json:20201115")
+   api("org.junit.platform:junit-platform-console:1.8.2")
+   api("org.junit.jupiter:junit-jupiter-engine:5.8.2")
+   api("com.github.kittinunf.fuel:fuel:2.3.1")
+   api("org.json:json:20211205")
 }
 
 val pluginDisplayName = "IHMC CI"
