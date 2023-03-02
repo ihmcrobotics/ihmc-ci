@@ -21,7 +21,7 @@ Gradle plugin for running groups of tests with varied runtime requirements.
 ```kotlin
 plugins {
    id("us.ihmc.ihmc-build") version "0.28.8"
-   id("us.ihmc.ihmc-ci") version "5.0"
+   id("us.ihmc.ihmc-ci") version "7.7"
 }
 ```
 
@@ -48,7 +48,7 @@ execution settings, and JVM arguments.
 
 In your project's `build.gradle.kts` (Kotlin):
 ```kotlin
-categories.create("scs-slow")
+categories.configure("scs-slow")
 {
    forkEvery = 0   // default: 0
    maxParallelForks = 1   // default: 1
@@ -62,19 +62,19 @@ categories.create("scs-slow")
 
 or in `build.gradle` (Groovy):
 ```groovy
-def gui = categories.create("gui")
+def gui = categories.configure("gui")
 gui.forkEvery = 0
 gui.maxParallelForks = 1
 gui.minHeapSizeGB = 6
 gui.maxHeapSizeGB = 8
  
-def video = categories.create("video")
+def video = categories.configure("video")
 video.forkEvery = 0  // forkEvery
 video.maxParallelForks = 1        // maxParallelForks
 video.minHeapSizeGB = 6
 video.maxHeapSizeGB = 8
  
-def scsAllocation = categories.create("scs-allocation")
+def scsAllocation = categories.configure("scs-allocation")
 scsAllocation.forkEvery = 0  // forkEvery
 scsAllocation.maxParallelForks = 1        // maxParallelForks
 scsAllocation.jvmArguments.add("allocationAgent")
