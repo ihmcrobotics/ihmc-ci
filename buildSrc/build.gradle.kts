@@ -3,11 +3,10 @@ import com.gradle.publish.MavenCoordinates
 plugins {
    `kotlin-dsl`
    id("com.gradle.plugin-publish") version "1.1.0"
-   id("us.ihmc.ihmc-ci")
 }
 
 group = "us.ihmc"
-version = "7.9"
+version = "7.7"
 
 repositories {
    mavenCentral()
@@ -20,17 +19,24 @@ dependencies {
    api("org.json:json:20220924")
 }
 
+val pluginDisplayName = "IHMC CI"
+val pluginDescription = "Gradle plugin for running groups of tests with varied runtime requirements."
 val pluginVcsUrl = "https://github.com/ihmcrobotics/ihmc-ci"
+val pluginTags = listOf("ci", "continuous", "integration", "ihmc", "robotics").filterNotNull()
 
 gradlePlugin {
-   website.set(pluginVcsUrl)
-   vcsUrl.set(pluginVcsUrl)
-
    plugins.register(project.name) {
       id = project.group as String + "." + project.name
       implementationClass = "us.ihmc.ci.IHMCCIPlugin"
-      displayName = "IHMC CI"
-      description = "Gradle plugin for running groups of tests with varied runtime requirements."
-      tags.set(listOf("ci", "continuous", "integration", "ihmc", "robotics"))
+      displayName = pluginDisplayName
+      description = pluginDescription
    }
 }
+
+pluginBundle {
+   website = pluginVcsUrl
+   vcsUrl = pluginVcsUrl
+   description = pluginDescription
+   tags = pluginTags.values.flatten()
+}
+
