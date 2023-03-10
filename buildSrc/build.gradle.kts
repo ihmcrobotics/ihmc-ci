@@ -21,6 +21,10 @@ dependencies {
 
 val pluginVcsUrl = "https://github.com/ihmcrobotics/ihmc-ci"
 
+val gradlePlugin = plugins {
+   id("gradlePlugin-IHMC-CI")
+}
+
 gradlePlugin {
    website.set(pluginVcsUrl)
    vcsUrl.set(pluginVcsUrl)
