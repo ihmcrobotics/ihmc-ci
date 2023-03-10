@@ -3,7 +3,7 @@ import com.gradle.publish.MavenCoordinates
 plugins {
    `kotlin-dsl`
    id("com.gradle.plugin-publish") version "1.1.0"
-   id("ihmc-ci")
+   id("us.ihmc.ihmc-ci")
 }
 
 group = "us.ihmc"
