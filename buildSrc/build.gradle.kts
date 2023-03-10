@@ -3,6 +3,7 @@ import com.gradle.publish.MavenCoordinates
 plugins {
    `kotlin-dsl`
    id("com.gradle.plugin-publish") version "1.1.0"
+   id("ihmc-ci")
 }
 
 group = "us.ihmc"
@@ -20,10 +21,6 @@ dependencies {
 }
 
 val pluginVcsUrl = "https://github.com/ihmcrobotics/ihmc-ci"
-
-val gradlePlugin = plugins {
-   id("gradlePlugin-IHMC-CI")
-}
 
 gradlePlugin {
    website.set(pluginVcsUrl)
