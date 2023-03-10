@@ -19,24 +19,13 @@ dependencies {
    api("org.json:json:20220924")
 }
 
-val pluginDisplayName = "IHMC CI"
-val pluginDescription = "Gradle plugin for running groups of tests with varied runtime requirements."
 val pluginVcsUrl = "https://github.com/ihmcrobotics/ihmc-ci"
-val pluginTags = listOf("ci", "continuous", "integration", "ihmc", "robotics").filterNotNull()
 
 gradlePlugin {
    plugins.register(project.name) {
       id = project.group as String + "." + project.name
       implementationClass = "us.ihmc.ci.IHMCCIPlugin"
-      displayName = pluginDisplayName
-      description = pluginDescription
+      displayName = "IHMC CI"
+      description = "Gradle plugin for running groups of tests with varied runtime requirements."
    }
 }
-
-pluginBundle {
-   website = pluginVcsUrl
-   vcsUrl = pluginVcsUrl
-   description = pluginDescription
-   tags = pluginTags.values.flatten()
-}
-
