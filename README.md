@@ -20,7 +20,7 @@ Gradle plugin for running groups of tests with varied runtime requirements.
 
 ```kotlin
 plugins {
-   id("us.ihmc.ihmc-build") version "0.28.8"
+   id("us.ihmc.ihmc-build") version "0.29.3"
    id("us.ihmc.ihmc-ci") version "7.7"
 }
 ```
