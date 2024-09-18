@@ -109,14 +109,3 @@ public void fastTest() { ... }   // runs in fast category
 @Test
 public void allocationTest() { ... }   // runs in allocation category
 ```
-
-#### Remote Backend (Advanced users only)
-
-The bambooSync task provides a remote web server the authority to fail a build using any dynamic requirements it desires. In our experience, this code has a habit of changing frequently, so this logic is abstracted to the following API.
-
-Set the Gradle property `ciBackendHost = 0.0.0.0`. This will be places into the following text to form a url: "http://$ciBackendHost/sync"
-
-When the task runs, it sends the project name and "`all tests to tags`" map.
-
-The task then waits for a response with `fail` (Boolean), and `message` (String). If `fail == true`, the Gradle build will fail with the message.
-

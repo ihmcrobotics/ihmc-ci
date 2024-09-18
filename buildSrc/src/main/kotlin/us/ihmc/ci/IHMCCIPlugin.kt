@@ -33,13 +33,11 @@ class IHMCCIPlugin : Plugin<Project>
    var allocationRecordingOverride: Any = Unset
    var vintageMode: Boolean = false
    var vintageSuite: String? = null
-   var ciBackendHost: String = "unset"
    lateinit var categoriesExtension: IHMCCICategoriesExtension
    var allocationJVMArg: String? = null
    val apiConfigurationName = "api"
    val runtimeConfigurationName = "runtimeOnly"
    val addedDependenciesMap = HashMap<String, Boolean>()
-   var registeredCIServerSyncTask = false
    var configuredTestTasks = HashMap<String, Boolean>()
    val testProjects = lazy {
       val testProjects = arrayListOf<Project>()
@@ -91,14 +89,6 @@ class IHMCCIPlugin : Plugin<Project>
          var allHaveCompileJava = true
          testProjects.value.forEach { testProject ->
             allHaveCompileJava = allHaveCompileJava && testProject.tasks.findByPath("compileJava") != null
-         }
-         if (!registeredCIServerSyncTask && allHaveCompileJava)
-         {
-            registeredCIServerSyncTask = true
-            project.tasks.register("ciServerSync") {
-               LogTools.info("Configuring ciServerSync task")
-               configureCIServerSyncTask(testsToTagsMap, testProjects, ciBackendHost)
-            }
          }
       }
    }
@@ -398,7 +388,6 @@ class IHMCCIPlugin : Plugin<Project>
       project.properties["category"].run { if (this != null) category = (this as String).trim().toLowerCase() }
       project.properties["vintageMode"].run { if (this != null) vintageMode = (this as String).trim().toLowerCase().toBoolean() }
       project.properties["vintageSuite"].run { if (this != null) vintageSuite = (this as String).trim() }
-      project.properties["ciBackendHost"].run { if (this != null) ciBackendHost = (this as String).trim() }
       project.properties["minHeapSizeGB"].run { if (this != null) minHeapSizeGBOverride = (this as String).toInt() }
       project.properties["maxHeapSizeGB"].run { if (this != null) maxHeapSizeGBOverride = (this as String).toInt() }
       project.properties["forkEvery"].run { if (this != null) forkEveryOverride = (this as String).toInt() }
