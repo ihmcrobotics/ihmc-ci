@@ -15,8 +15,6 @@ repositories {
 dependencies {
    api("org.junit.platform:junit-platform-console:1.9.2")
    api("org.junit.jupiter:junit-jupiter-engine:5.9.2")
-   api("com.github.kittinunf.fuel:fuel:2.3.1")
-   api("org.json:json:20220924")
 }
 
 val pluginVcsUrl = "https://github.com/ihmcrobotics/ihmc-ci"
