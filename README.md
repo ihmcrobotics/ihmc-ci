@@ -1,4 +1,5 @@
 # IHMC CI
+# Functionality now included in [ihmc-build](https://github.com/ihmcrobotics/ihmc-build)
 
 Gradle plugin for running groups of tests with varied runtime requirements.
 
